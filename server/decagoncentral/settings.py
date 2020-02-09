@@ -77,10 +77,20 @@ WSGI_APPLICATION = 'decagoncentral.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'djongo',
+    #     'NAME': 'decagon_central',
+    #     'HOST': 'mongodb+srv://django_app:akin1991@oluwasayo-ckrua.mongodb.net/test?retryWrites=true&w=majority',
+    #     'USER': 'django_app',
+    #     'PASSWORD': 'akin1991',
+    # },
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'decagon_central',
+        'USER': 'postgres',
+        'PASSWORD' : 'postgres',
+    },
 }
 
 
