@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework.authtoken',
     'rest_framework',
     'corsheaders',
     'api',
@@ -50,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'decagoncentral.urls'
@@ -72,15 +75,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'decagoncentral.wsgi.application'
 
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'djongo',
+    #     'NAME': 'decagon_central',
+    #     'HOST': 'mongodb+srv://django_app:akin1991@oluwasayo-ckrua.mongodb.net/test?retryWrites=true&w=majority',
+    #     'USER': 'django_app',
+    #     'PASSWORD': 'akin1991',
+    # },
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'decagon_central',
+        'USER': 'postgres',
+        'PASSWORD' : 'postgres',
+    },
 }
 
 
